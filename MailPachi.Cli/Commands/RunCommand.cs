@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using MailKit;
 using MailPachi.Cli.Settings;
 using MailPachi.Shared;
@@ -37,7 +38,27 @@ public class RunCommand : AsyncCommand<RunSettings>
             return await mailService.GetTextBody(selectedUniqueId);
         });
         var parsedMail = MailParser.ParseBody(mail, appSettings.Pattern);
-        AnsiConsole.MarkupLine($"[deepskyblue4_1]ResultType[/]: {parsedMail.ResultType} [deepskyblue4_1]Subject[/]: {parsedMail.Subject}");
+
+        if (parsedMail.ResultType == ResultType.Unknown)
+        {
+            AnsiConsole.MarkupLine("[red]合否判定に失敗しました。[/]");
+            return 1;
+        }
+
+        var video = appSettings.YoutubeVideos
+                                            .Where(x => x.IsPass == (parsedMail.ResultType == ResultType.Pass))
+                                            .Select(x => (x, Guid: Guid.NewGuid()))
+                                            .MinBy(x => x.Guid).x;
+
+        if (!AnsiConsole.Confirm("合否を表す動画を表示してもよろしいですか？")) return 0;
+        
+        using var process = Process.Start(new ProcessStartInfo
+        {
+            FileName = video.Url,
+            UseShellExecute = true,
+            WindowStyle = ProcessWindowStyle.Maximized
+        }) ?? throw new Exception();
+        await process.WaitForExitAsync();
         return 0;
     }
 }
