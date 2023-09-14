@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailPachi.Cli", "MailPachi.Cli\MailPachi.Cli.csproj", "{35B48BB0-C3FF-4E38-85DA-86ABF1EFEB50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailPachi.Shared", "MailPachi.Shared\MailPachi.Shared.csproj", "{89A06243-CC12-47A2-8118-4193135D9EFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35B48BB0-C3FF-4E38-85DA-86ABF1EFEB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B48BB0-C3FF-4E38-85DA-86ABF1EFEB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B48BB0-C3FF-4E38-85DA-86ABF1EFEB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B48BB0-C3FF-4E38-85DA-86ABF1EFEB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A06243-CC12-47A2-8118-4193135D9EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A06243-CC12-47A2-8118-4193135D9EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A06243-CC12-47A2-8118-4193135D9EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A06243-CC12-47A2-8118-4193135D9EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
