@@ -13,6 +13,8 @@ public class RunCommand : AsyncCommand<RunSettings>
 {
     public override async Task<int> ExecuteAsync(CommandContext context, RunSettings settings)
     {
+        AnsiConsole.Write(new FigletText("MailPachi").LeftJustified().Color(Color.Aquamarine1));
+        
         var mailService = new IMapService(settings.Host, settings.Email, settings.Password);
         var appSettings = AppSettings.LoadFormFile(settings.SettingsPath);
         
